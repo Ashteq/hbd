@@ -301,7 +301,8 @@
 </head>
 <body>
 
-    <audio id="bg-music" src="./music/song.mp3"></audio>
+    <!-- CHANGED: Now looks for song.mp3 in the root folder -->
+    <audio id="bg-music" src="song.mp3"></audio>
 
     <div id="scene">
         <div id="envelope-wrapper">
@@ -330,15 +331,14 @@
             (This is column one. Write your beautiful text here so it flows nicely on the lined paper...)
         </div>
 
-        <!-- NEW CSS SPOTIFY PLAYER -->
         <div class="spotify-player">
             <div class="sp-cover">
-                <!-- Removes the looping error. Just push the file to resolve the 404 -->
-                <img src="./images/song.jpg" alt="">
+                <!-- CHANGED: Now looks for song.jpg in the root folder -->
+                <img src="song.jpg" alt="">
             </div>
             <div class="sp-info">
                 <span>iPhone</span>
-                <span>&#128225;</span> <!-- Cast icon -->
+                <span>&#128225;</span> 
             </div>
             <div class="sp-track">
                 <div class="sp-bar-bg"><div class="sp-bar-fill"></div></div>
@@ -365,10 +365,10 @@
         </div>
 
         <div class="polaroid-strip">
-            <!-- Removed onerror completely to stop the placeholder timeout loop -->
-            <img src="./images/photo1.jpg" alt="">
-            <img src="./images/photo2.jpg" alt="">
-            <img src="./images/photo3.jpg" alt="">
+            <!-- CHANGED: Now looks for photos in the root folder -->
+            <img src="photo1.jpg" alt="">
+            <img src="photo2.jpg" alt="">
+            <img src="photo3.jpg" alt="">
         </div>
 
         <div class="letter-content">

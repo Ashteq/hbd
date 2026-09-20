@@ -5,20 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Letter for Merwan</title>
     
-    <!-- Google Fonts for Handwritten and Stamp styles -->
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Dancing+Script:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --bg-color: #f4ece4;
-            --envelope-color: #8b1e28; /* Deep burgundy */
+            --envelope-color: #8b1e28; 
             --envelope-dark: #6a151d;
             --envelope-light: #a32834;
             --paper-color: #fdfaf3;
             --line-color: #d1c8b4;
             --text-color: #3b2f2f;
-            /* Colors for the replicated wax seal */
-            --seal-pink: #fbd6e6; /* Soft pink from reference image_2.png */
+            --seal-pink: #fbd6e6; 
             --seal-highlight: #ffd5e8;
             --seal-shadow: #ca97ad;
         }
@@ -36,9 +34,7 @@
             color: var(--text-color);
         }
 
-        /* =========================================
-           ENVELOPE & 3D FLIP CONTAINER
-           ========================================= */
+        /* ENVELOPE STYLES */
         #scene {
             perspective: 1200px;
             width: 90vw;
@@ -56,9 +52,7 @@
             transition: transform 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
-        #envelope-wrapper.flipped {
-            transform: rotateY(180deg);
-        }
+        #envelope-wrapper.flipped { transform: rotateY(180deg); }
 
         .face {
             position: absolute;
@@ -70,14 +64,12 @@
             background-color: var(--envelope-color);
         }
 
-        /* --- Front of Envelope --- */
         .face.front {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             padding: 30px;
             box-sizing: border-box;
-            transform: rotateY(0deg);
             border: 2px solid rgba(255,255,255,0.1);
         }
 
@@ -95,7 +87,6 @@
             margin-bottom: 20px;
         }
 
-        /* Ribbon & Heart Button */
         .ribbon-container {
             position: absolute;
             top: 50%;
@@ -143,7 +134,6 @@
             100% { transform: rotate(-45deg) scale(1.1) translateY(0); }
         }
 
-        /* --- Back of Envelope --- */
         .face.back {
             transform: rotateY(180deg);
             background-color: var(--envelope-color);
@@ -151,39 +141,11 @@
             overflow: hidden;
         }
 
-        /* CSS Shapes to make it look like envelope flaps */
-        .flap-left {
-            position: absolute;
-            border-top: 200px solid transparent;
-            border-bottom: 200px solid transparent;
-            border-left: 300px solid var(--envelope-dark);
-            left: 0; top: 0;
-        }
-        .flap-right {
-            position: absolute;
-            border-top: 200px solid transparent;
-            border-bottom: 200px solid transparent;
-            border-right: 300px solid var(--envelope-dark);
-            right: 0; top: 0;
-        }
-        .flap-bottom {
-            position: absolute;
-            border-left: 300px solid transparent;
-            border-right: 300px solid transparent;
-            border-bottom: 250px solid var(--envelope-light);
-            bottom: 0; left: 50%; transform: translateX(-50%);
-        }
-        .flap-top {
-            position: absolute;
-            border-left: 300px solid transparent;
-            border-right: 300px solid transparent;
-            border-top: 220px solid var(--envelope-color);
-            top: 0; left: 50%; transform: translateX(-50%);
-            z-index: 2;
-            filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.3));
-        }
+        .flap-left { position: absolute; border-top: 200px solid transparent; border-bottom: 200px solid transparent; border-left: 300px solid var(--envelope-dark); left: 0; top: 0; }
+        .flap-right { position: absolute; border-top: 200px solid transparent; border-bottom: 200px solid transparent; border-right: 300px solid var(--envelope-dark); right: 0; top: 0; }
+        .flap-bottom { position: absolute; border-left: 300px solid transparent; border-right: 300px solid transparent; border-bottom: 250px solid var(--envelope-light); bottom: 0; left: 50%; transform: translateX(-50%); }
+        .flap-top { position: absolute; border-left: 300px solid transparent; border-right: 300px solid transparent; border-top: 220px solid var(--envelope-color); top: 0; left: 50%; transform: translateX(-50%); z-index: 2; filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.3)); }
 
-        /* REPLICATED WAX SEAL CSS (Based on reference images) */
         .stamp-btn {
             position: absolute;
             top: 170px;
@@ -201,37 +163,27 @@
             padding: 0;
             border: none;
         }
-        .stamp-btn:hover {
-            transform: translateX(-50%) scale(1.1);
-        }
+        .stamp-btn:hover { transform: translateX(-50%) scale(1.1); }
 
         .wax-seal {
             background-color: var(--seal-pink);
             width: 80px;
             height: 80px;
-            border-radius: 48% 52% 55% 45% / 45% 55% 48% 52%; /* Organic, imperfect circle shape */
+            border-radius: 48% 52% 55% 45% / 45% 55% 48% 52%; 
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 
-                0 5px 15px rgba(0,0,0,0.4), /* Drop shadow */
-                inset 0 0 10px rgba(0,0,0,0.1), /* Inner shadow */
-                inset 5px 5px 8px var(--seal-highlight), /* Highlight shine */
-                inset -5px -5px 8px var(--seal-shadow); /* Contour shadow */
-            font-family: 'Dancing Script', cursive; /* Elegant calligraphy style */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4), inset 0 0 10px rgba(0,0,0,0.1), inset 5px 5px 8px var(--seal-highlight), inset -5px -5px 8px var(--seal-shadow); 
+            font-family: 'Dancing Script', cursive; 
             font-size: 3.5rem;
-            color: #f1b3d0; /* Embossed effect font color */
-            text-shadow: 
-                1px 1px 1px var(--seal-highlight), /* highlight offset bottom right */
-                -1px -1px 1px var(--seal-shadow); /* shadow offset top left */
+            color: #f1b3d0; 
+            text-shadow: 1px 1px 1px var(--seal-highlight), -1px -1px 1px var(--seal-shadow); 
             font-weight: 700;
         }
 
-        /* =========================================
-           SCROLLING LETTER UI
-           ========================================= */
+        /* LETTER UI */
         #letter-container {
-            display: none; /* Hidden until stamp is clicked */
+            display: none; 
             width: 90vw;
             max-width: 700px;
             background-color: var(--paper-color);
@@ -247,10 +199,7 @@
             transition: all 1.5s ease;
         }
 
-        #letter-container.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        #letter-container.visible { opacity: 1; transform: translateY(0); }
 
         .heading {
             font-family: 'Dancing Script', cursive;
@@ -268,29 +217,60 @@
             75% { transform: scale(0.98) rotate(-1deg); }
         }
 
-        .letter-content {
-            font-size: 1.8rem;
-            line-height: 32px; 
-            margin-bottom: 20px;
-        }
+        .letter-content { font-size: 1.8rem; line-height: 32px; margin-bottom: 20px; }
 
-        /* Spotify / Postcard Wrapper */
-        .song-postcard {
-            background: #fff;
-            padding: 15px;
+        /* REPLICATED SPOTIFY PLAYER */
+        .spotify-player {
+            background-color: var(--envelope-color);
+            border-radius: 25px;
+            padding: 25px 20px 20px 20px;
             margin: 30px auto;
             width: 80%;
-            max-width: 300px;
-            border-radius: 10px;
-            box-shadow: 2px 5px 15px rgba(0,0,0,0.1);
+            max-width: 280px;
+            box-shadow: 2px 8px 25px rgba(0,0,0,0.2);
+            color: rgba(255,255,255,0.9);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             transform: rotate(-2deg);
         }
-        .song-postcard img {
+
+        .sp-cover {
+            background-color: #fff;
             width: 100%;
-            border-radius: 5px;
+            aspect-ratio: 1 / 1;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        }
+        .sp-cover img { width: 100%; height: 100%; object-fit: cover; }
+
+        .sp-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
         }
 
-        /* Polaroid Photo Carousel Frame */
+        .sp-track { position: relative; margin-bottom: 10px; }
+        .sp-bar-bg { width: 100%; height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; }
+        .sp-bar-fill { width: 60%; height: 100%; background: #fff; border-radius: 2px; position: relative; }
+        .sp-bar-fill::after {
+            content: ''; position: absolute; right: -5px; top: -3px; width: 10px; height: 10px; background: #fff; border-radius: 50%;
+        }
+
+        .sp-times { display: flex; justify-content: space-between; font-size: 10px; margin-bottom: 20px; opacity: 0.8; }
+
+        .sp-controls { display: flex; justify-content: center; align-items: center; gap: 30px; margin-bottom: 25px; }
+        .sp-btn { cursor: pointer; color: #fff; font-size: 16px; user-select: none; }
+        .sp-play { display: flex; gap: 6px; align-items: center; justify-content: center; height: 20px; }
+        .sp-pause-bar { width: 6px; height: 22px; background: #fff; border-radius: 2px; }
+
+        .sp-vol { display: flex; align-items: center; gap: 10px; }
+        .sp-vol-icon { font-size: 12px; }
+
+        /* POLAROID CAROUSEL */
         .polaroid-strip {
             background: var(--envelope-color); 
             padding: 15px 15px 40px 15px;
@@ -304,33 +284,15 @@
             transform: rotate(2deg);
         }
         .polaroid-strip img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background: #fff; 
-            display: block;
+            width: 100%; height: 200px; object-fit: cover; background: #fff; display: block;
         }
 
-        .signature {
-            text-align: right;
-            margin-top: 50px;
-            font-size: 2.2rem;
-            color: #d13045;
-        }
+        .signature { text-align: right; margin-top: 50px; font-size: 2.2rem; color: #d13045; }
 
-        /* =========================================
-           FLUTTERING HEARTS ANIMATION
-           ========================================= */
+        /* FLUTTERING HEARTS */
         .flutter-heart {
-            position: absolute;
-            color: #ff8fa3;
-            font-size: 24px;
-            user-select: none;
-            pointer-events: none;
-            animation: floatUp 3s ease-in forwards;
-            z-index: 100;
+            position: absolute; color: #ff8fa3; font-size: 24px; user-select: none; pointer-events: none; animation: floatUp 3s ease-in forwards; z-index: 100;
         }
-
         @keyframes floatUp {
             0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
             100% { transform: translateY(-300px) scale(1.5) rotate(45deg); opacity: 0; }
@@ -339,97 +301,85 @@
 </head>
 <body>
 
-    <!-- AUDIO PLAYER -->
     <audio id="bg-music" src="./music/song.mp3"></audio>
 
-    <!-- ENVELOPE SCENE -->
     <div id="scene">
         <div id="envelope-wrapper">
-            
-            <!-- FRONT OF ENVELOPE -->
             <div class="face front">
-                <div class="address-from">
-                    From: Akansu<br>
-                    Haryana, India<br>
-                    #534 Sec- Pkl
-                </div>
-
+                <div class="address-from">From: Akansu<br>Haryana, India<br>#534 Sec- Pkl</div>
                 <div class="ribbon-container">
                     <div class="ribbon"></div>
                     <div class="heart-btn" id="open-envelope-btn"></div>
                     <div class="ribbon"></div>
                 </div>
-
-                <div class="address-to">
-                    To: merwan<br>
-                    Hyderabad, India,<br>
-                    Tarnaka 204 Sv landmark
-                </div>
+                <div class="address-to">To: merwan<br>Hyderabad, India,<br>Tarnaka 204 Sv landmark</div>
             </div>
 
-            <!-- BACK OF ENVELOPE -->
             <div class="face back">
-                <div class="flap-left"></div>
-                <div class="flap-right"></div>
-                <div class="flap-bottom"></div>
-                <div class="flap-top"></div>
-                
-                <!-- STAMP BUTTON (REPLICATED WAX SEAL) -->
-                <button class="stamp-btn" id="stamp-btn">
-                    <!-- The M Stamp is now created purely with CSS below -->
-                    <div class="wax-seal">M</div>
-                </button>
+                <div class="flap-left"></div><div class="flap-right"></div><div class="flap-bottom"></div><div class="flap-top"></div>
+                <button class="stamp-btn" id="stamp-btn"><div class="wax-seal">M</div></button>
             </div>
-
         </div>
     </div>
 
-    <!-- SCROLLING LETTER (Initially Hidden) -->
     <div id="letter-container">
-        
         <h1 class="heading">Happy Birthday</h1>
         
-        <!-- BODY SECTION 1 -->
         <div class="letter-content">
             _ to na merwan <br>
-            <!-- WRITE YOUR FIRST PARAGRAPH HERE -->
             (This is column one. Write your beautiful text here so it flows nicely on the lined paper...)
         </div>
 
-        <!-- SONG POSTCARD -->
-        <div class="song-postcard">
-            <!-- Replace source below with your song wrapper image -->
-            <img src="./images/song.jpg" alt="Our Song" onerror="this.src='https://via.placeholder.com/300x300?text=Song+Cover'">
+        <!-- NEW CSS SPOTIFY PLAYER -->
+        <div class="spotify-player">
+            <div class="sp-cover">
+                <!-- Removes the looping error. Just push the file to resolve the 404 -->
+                <img src="./images/song.jpg" alt="">
+            </div>
+            <div class="sp-info">
+                <span>iPhone</span>
+                <span>&#128225;</span> <!-- Cast icon -->
+            </div>
+            <div class="sp-track">
+                <div class="sp-bar-bg"><div class="sp-bar-fill"></div></div>
+            </div>
+            <div class="sp-times">
+                <span>1:53</span><span>-1:20</span>
+            </div>
+            <div class="sp-controls">
+                <div class="sp-btn">&#9664;&#9664;</div>
+                <div class="sp-play">
+                    <div class="sp-pause-bar"></div><div class="sp-pause-bar"></div>
+                </div>
+                <div class="sp-btn">&#9654;&#9654;</div>
+            </div>
+            <div class="sp-vol">
+                <span class="sp-vol-icon">&#128265;</span>
+                <div class="sp-bar-bg" style="flex-grow: 1;"><div class="sp-bar-fill" style="width: 80%;"></div></div>
+                <span class="sp-vol-icon">&#128266;</span>
+            </div>
         </div>
 
-        <!-- BODY SECTION 2 -->
         <div class="letter-content">
-            <!-- WRITE YOUR SECOND PARAGRAPH HERE -->
             (Continue your letter here. Tell him how much he means to you...)
         </div>
 
-        <!-- POLAROID PHOTO CAROUSEL -->
         <div class="polaroid-strip">
-            <!-- Replace sources below with your 3 photos -->
-            <img src="./images/photo1.jpg" alt="Memory 1" onerror="this.src='https://via.placeholder.com/200x200?text=Photo+1'">
-            <img src="./images/photo2.jpg" alt="Memory 2" onerror="this.src='https://via.placeholder.com/200x200?text=Photo+2'">
-            <img src="./images/photo3.jpg" alt="Memory 3" onerror="this.src='https://via.placeholder.com/200x200?text=Photo+3'">
+            <!-- Removed onerror completely to stop the placeholder timeout loop -->
+            <img src="./images/photo1.jpg" alt="">
+            <img src="./images/photo2.jpg" alt="">
+            <img src="./images/photo3.jpg" alt="">
         </div>
 
-        <!-- BODY SECTION 3 -->
         <div class="letter-content">
-            <!-- WRITE YOUR FINAL PARAGRAPH HERE -->
             (Wrap up your feelings here before the signature...)
         </div>
 
-        <!-- SIGNATURE -->
         <div class="signature">
             love by akansu.
         </div>
-
     </div>
 
-    <!-- JAVASCRIPT FOR INTERACTIONS -->
     <script>
         const envelopeWrapper = document.getElementById('envelope-wrapper');
         const scene = document.getElementById('scene');
@@ -438,58 +388,41 @@
         const letterContainer = document.getElementById('letter-container');
         const bgMusic = document.getElementById('bg-music');
 
-        // Function to create fluttering hearts
         function createFlutteringHearts() {
             for (let i = 0; i < 15; i++) {
                 setTimeout(() => {
                     const heart = document.createElement('div');
                     heart.innerHTML = '❤';
                     heart.className = 'flutter-heart';
-                    
                     const xPos = (window.innerWidth / 2) + (Math.random() * 200 - 100);
                     const yPos = (window.innerHeight / 2) + (Math.random() * 50);
-                    
                     heart.style.left = `${xPos}px`;
                     heart.style.top = `${yPos}px`;
-                    
                     document.body.appendChild(heart);
-
-                    setTimeout(() => {
-                        heart.remove();
-                    }, 3000);
+                    setTimeout(() => { heart.remove(); }, 3000);
                 }, i * 100); 
             }
         }
 
-        // 1. Click Heart to Flip Envelope
         openBtn.addEventListener('click', () => {
             envelopeWrapper.classList.add('flipped');
             createFlutteringHearts();
         });
 
-        // 2. Click Stamp to Open Letter & Play Music
         stampBtn.addEventListener('click', () => {
             scene.style.opacity = '0';
-            
             setTimeout(() => {
                 scene.style.display = 'none';
                 letterContainer.style.display = 'block';
-                
                 setTimeout(() => {
                     letterContainer.classList.add('visible');
-                    
-                    bgMusic.play().catch(error => {
-                        console.log("Audio playback was prevented. Ensure file is at /music/song.mp3 or check browser settings.");
-                    });
+                    bgMusic.play().catch(e => console.log("Audio waiting for file upload."));
                 }, 50);
-                
                 document.body.style.alignItems = 'flex-start';
                 document.body.style.paddingTop = '20px';
                 document.body.style.paddingBottom = '50px';
-
             }, 1000); 
         });
-
     </script>
 </body>
 </html>

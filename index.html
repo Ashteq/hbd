@@ -222,14 +222,14 @@
 
         .letter-content { font-size: 1.8rem; line-height: 32px; margin-bottom: 20px; }
 
-        /* REPLICATED SPOTIFY PLAYER */
+        /* MODIFIED SPOTIFY PLAYER (Landscape/Rectangle format) */
         .spotify-player {
             background-color: var(--envelope-color);
             border-radius: 25px;
             padding: 25px 20px 20px 20px;
             margin: 30px auto;
-            width: 80%;
-            max-width: 280px;
+            width: 90%;
+            max-width: 450px; /* Made wider to act as a landscape rectangle */
             box-shadow: 2px 8px 25px rgba(0,0,0,0.2);
             color: rgba(255,255,255,0.9);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -239,7 +239,7 @@
         .sp-cover {
             background-color: #fff;
             width: 100%;
-            aspect-ratio: 1 / 1;
+            aspect-ratio: 16 / 9; /* Changed to landscape ratio so width is more than length */
             border-radius: 12px;
             overflow: hidden;
             margin-bottom: 25px;
@@ -247,7 +247,7 @@
         }
         .sp-cover img { width: 100%; height: 100%; object-fit: cover; }
 
-        .sp-info { display: flex; justify-content: space-between; font-size: 11px; font-weight: 500; margin-bottom: 15px; letter-spacing: 0.5px; }
+        .sp-info { display: flex; justify-content: flex-end; font-size: 11px; font-weight: 500; margin-bottom: 15px; letter-spacing: 0.5px; } /* Aligned icon to the right, removed iPhone text */
         .sp-track { position: relative; margin-bottom: 10px; }
         .sp-bar-bg { width: 100%; height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; }
         .sp-bar-fill { width: 60%; height: 100%; background: #fff; border-radius: 2px; position: relative; }
@@ -277,7 +277,7 @@
         .polaroid-strip img {
             width: 100%; 
             height: auto; 
-            aspect-ratio: 3 / 4; /* Makes the images portrait rectangles */
+            aspect-ratio: 3 / 4; 
             object-fit: cover; 
             background: #fff; 
             display: block;
@@ -296,7 +296,7 @@
             color: #ff9fb3; 
             user-select: none; 
             pointer-events: none; 
-            z-index: 1; /* Sits behind the letter container */
+            z-index: 1; 
             animation: floatSparkle linear infinite;
             opacity: 0;
             text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 15px #ff4d6d;
@@ -352,7 +352,7 @@
                 <img src="song.jpg" alt="">
             </div>
             <div class="sp-info">
-                <span>iPhone</span>
+                <!-- iPhone text has been removed -->
                 <span>&#128225;</span> 
             </div>
             <div class="sp-track">
@@ -418,15 +418,13 @@
             }
         }
 
-        // Function to create the continuous sparkly background
         function startSparklyBackground() {
-            const heartCount = 20; // Number of hearts on screen at once
+            const heartCount = 20;
             for (let i = 0; i < heartCount; i++) {
                 let heart = document.createElement('div');
                 heart.innerHTML = '✨❤✨'; 
                 heart.className = 'bg-sparkle-heart';
                 
-                // Randomize position, size, and animation timing
                 heart.style.left = Math.random() * 100 + 'vw';
                 heart.style.animationDelay = (Math.random() * 10) + 's';
                 heart.style.animationDuration = (8 + Math.random() * 7) + 's';
@@ -448,7 +446,7 @@
                 letterContainer.style.display = 'block';
                 setTimeout(() => {
                     letterContainer.classList.add('visible');
-                    startSparklyBackground(); // Start the background animation
+                    startSparklyBackground(); 
                     bgMusic.play().catch(e => console.log("Audio waiting for file upload."));
                 }, 50);
                 document.body.style.alignItems = 'flex-start';
